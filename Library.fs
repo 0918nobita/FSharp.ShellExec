@@ -13,3 +13,5 @@ let exec (cmd: string) (args: string list) : Result<string, string> =
         p.StandardOutput.ReadToEnd() |> Ok
     with
     | e -> Error e.Message
+
+let execAsync (cmd: string) (args: string list) : Async<Result<string, string>> = async { return exec cmd args }
